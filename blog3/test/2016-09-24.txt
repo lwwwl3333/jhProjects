@@ -1,0 +1,23 @@
+---
+2016-09-24insert into cat (cat_id,catname) values ('669','555')
+---
+
+---
+2016-09-24
+---
+
+---
+2016-09-24
+insert into cat (cat_id,catname) values ('660','555')
+---
+
+---
+2016-09-24
+
+---
+
+---
+2016-09-24
+insert into cat (cat_id,catname) values ('63','壮大了')
+---
+

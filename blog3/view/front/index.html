@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<link rel="stylesheet" href="./css/reset.css">
+<link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <header>
+        <h1>十八哥的Blog</h1>
+        <h4>乘风行,无惧</h4>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="">导航1</a></li>
+            <li><a href="">导航2</a></li>
+            <li>
+                <a href="">导航3</a></li>
+            <li><a href="">导航4</a></li>
+        </ul>
+    </nav>
+    <div id="main">
+        <div id="lside">
+            <?php foreach($rs as $v) { ?>
+                <article>
+                    <h2><a href="art.php?art_id=<?php echo $v['art_id']; ?>"><?php echo $v['title']; ?></a></h2>
+                    <div class="entry_header">
+                        <time><?php echo date('Y年/m月/d日',$v['pubtime']); ?></time>
+                        by
+                        <a href="#">十八</a>
+                        <a class="catlink" href="#"><?php echo $v['catname']; ?></a>
+                        <a class="comment" href="#"><?php echo $v['comm']; ?></a>
+                    </div>
+                    <div class="entry_content">
+                       <P><?php echo $v['content']; ?></P>
+                        <img src="<?php echo $v['img'];?>">
+                    </div>
+                </article>
+            <?php } ?>
+
+            <div id="pagebar">
+                Pages:&nbsp;
+                <?php foreach($pages as $k=>$v)  { ?>
+                <?php if($k==$curr){  ?>
+                <?php echo $k ;} else { ?>
+                <a href="index.php?<?php echo $v;?>"><?php echo $k;?> </a>
+                <?php }}?>
+            </div>
+        </div>
+        <div id="rside">
+            <aside>
+                <form action="">
+                    <input type="text" name="search" placeholder="Search...">
+                </form>
+            </aside>
+            <aside>
+                <h4>栏目名称</h4>
+                <ul>
+                    <?php foreach($cats as $cat) { ?>
+                    <li><a href="index.php?cat_id=<?php echo $cat['cat_id'];?>"><?php echo $cat['catname'];?></a>&nbsp;(<?php echo $cat['num'];?>)</li>
+                    <?php  } ?>
+                </ul>
+            </aside>
+
+
+
+        </div>
+    </div>
+    <footer>
+        Copyright &copy; 2015 · GeneratePress · WordPress
+    </footer>
+</body>
+</html>
